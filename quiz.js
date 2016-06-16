@@ -23,8 +23,28 @@ function populatePage (inventory) {
 	  		var newCarCardID = document.createAttribute("id");
 	  		newCarCardID.value = `vehicle--${indexNum}`;
 	  		newCarCard.setAttributeNode(newCarCardID);
+	  		newCarCard.classList.add("carCard");
 
+	  		//add div with year, make model for top of card
+	  		var newCarTitleDiv = document.createElement("div");
+	  		newCarTitleDiv.innerHTML = `<span>${carYear}</span><span>${carMake}</span><span>${carModel}</span>`;
+	  		newCarTitleDiv.classList.add("carCardTitle");
 
+	  		newCarCard.appendChild(newCarTitleDiv);
+
+	  		//add color, price and description as separate p's
+	  		var newCarColorEl = document.createElement("p");
+	  		newCarColorEl.innerHTML = carColor;
+	  		newCarColorEl.classList.add("carColor");
+	  		newCarCard.appendChild(newCarColorEl);
+	  		var newCarPriceEl = document.createElement("p");
+	  		newCarPriceEl.innerHTML = `$${carPrice}`;
+	  		newCarPriceEl.classList.add("carPrice");
+	  		newCarCard.appendChild(newCarPriceEl);
+	  		var newCarDescriptEl = document.createElement("p");
+	  		newCarDescriptEl.innerHTML = carDescript;
+	  		newCarDescriptEl.classList.add("carDescript");
+	  		newCarCard.appendChild(newCarDescriptEl);
 
 
 
