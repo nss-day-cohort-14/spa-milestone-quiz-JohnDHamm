@@ -1,0 +1,31 @@
+{
+  "cars": [
+    {
+      "make": "Nissan",
+      "model": "Rogue",
+      "year": "2006",
+      "price": "8999",
+      "color": "NavyBlue",
+      "purchased": false,
+      "description": "This is an immaculate 2006 Nissan Rogue with only 25000 miles on it. Leather seats, power everything."
+    },
+    {
+      "make": "Chevrolet",
+      "model": "Suburban",
+      "year": "1977",
+      "price": "1.50",
+      "color": "maroon",
+      "purchased": false,
+      "description": "Engine does not run. 'Natural' air-conditioning (not safe for small children). Was owned by future celebrity."
+    },
+    {
+      "make": "Honda",
+      "model": "CR-V",
+      "year": "2012",
+      "price": "16500",
+      "color": "silver",
+      "purchased": false,
+      "description": "One owner. Lots of race stickers on rear window to impress your friends. Does not include bike rack."
+    }
+  ]
+}
