@@ -10,7 +10,7 @@
 
 .carCardTitle span {
 	padding-right: 10px;
-	font-size: 2.5em;
+	font-size: 1.5em;
 	font-weight: bold;
 }
 
@@ -20,11 +20,15 @@
 }
 
 .carPrice {
-	font-size: 3em;
+	font-size: 2em;
 }
 
 .carDescript {
 	font-size: 1.2em;
 	font-style: italic;
 
+}
+
+.selectedBorder {
+	border: 4px dotted red;
 }
