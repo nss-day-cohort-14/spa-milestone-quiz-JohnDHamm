@@ -8,7 +8,7 @@ var CarLot = (function () {
     getInventory: function () {
       return inventory;
     },
-    
+
     // When your page first loads, you need to use an XHR to load the contents of the JSON file, and parse them into a native JavaScript object.
     loadInventory: function (callback) {
       var inventoryLoader = new XMLHttpRequest();

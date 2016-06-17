@@ -30,6 +30,7 @@ function populatePage (inventory) {
 	  		newCarCardID.value = `vehicle--${indexNum}`;
 	  		newCarCard.setAttributeNode(newCarCardID);
 	  		newCarCard.classList.add("carCard");
+	  		newCarCard.style.border = `3px solid ${carColor}`;
 
 	  		//add div with year, make model for top of card
 	  		var newCarTitleDiv = document.createElement("div");
@@ -82,17 +83,21 @@ function populatePage (inventory) {
   CarLot.activateEvents();
 }
 
+
+
+
 function editCard (event) {
 	var selectedEl = event.currentTarget;
 	selectedEl.classList.toggle("selectedBorder");
 	var cardSelectedNum = event.currentTarget.id.split("--")[1];
 	console.log("you clicked on card #", cardSelectedNum);
+
+	CarLot.getSelectedCarColor(cardSelectedNum);
+
 	textInputEl.focus();
 	textInputEl.value = "";
 
-	var selectedDescription = document.getElementById(`description--${cardSelectedNum}`);
-	console.log("selectedDescription", selectedDescription);
-	liveUpdate(selectedDescription);
+	liveUpdate(cardSelectedNum);
 }
 
 
@@ -103,23 +108,25 @@ function editCard (event) {
 
 
 
-function liveUpdate(element) {
+function liveUpdate(cardnum) {
+	var selectedDescription = document.getElementById(`description--${cardnum}`);
+	console.log("selectedDescription", selectedDescription);
+
 	textInputEl.addEventListener('keyup', function(){
-			element.innerHTML = textInputEl.value;
+			selectedDescription.innerHTML = textInputEl.value;
 	});
 
-	textInputEl.addEventListener('keypress', function (e) {
-    var key = e.keyCode;
-    if (key === 13) { // 13 is enter
-    		element.classList.toggle("selectedBorder");
-    		textInput.value = "";
-    		element = "";
-    };
-	});
+	// When you press the enter/return key when typing in the input field, then the content of the input field should immediately be blank.
+	// textInputEl.addEventListener('keypress', function (e) {
+ //    var key = e.keyCode;
+ //    if (key === 13) { // 13 is enter
+ //    		selectedDescription.classList.toggle("selectedBorder");
+ //    		selectedDescription = null;
+ //    		textInput.value = "";
+ //    };
+	// });
 }
-// // 11. When you press the enter/return key when typing in the input field, then the content of the input field should immediately be blank.
-// 	});
-// }
+
 
 
 
