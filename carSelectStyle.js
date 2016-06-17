@@ -2,20 +2,21 @@
 // A car DOM element that was clicked on.
 // A color name.
 
-
 var CarLot = (function (carlot) {
 
+  //reset all cards borders and backgrounds
   carlot.resetCardStyle = function(carNum){
-  	var cars = CarLot.getInventory();
-
+    var cars = CarLot.getInventory();
   	for (i = 0; i < cars.length; i++){
   		var carCard = document.getElementById(`vehicle--${i}`);
-  		carCard[i].style.border = `3px solid ${car[i].carColor}`;
-			carCard[i].style.background = "white";
+  		carCard.style.border = `3px solid ${cars[i].color}`;
+			carCard.style.background = "white";
   	};
   };
 
-  carlot.changeSelectCarStyle = function (carCard, color) {
+  // change border and background of selected element
+  carlot.changeSelectedCarStyle = function (carCard, color) {
+  	CarLot.resetCardStyle(); //to keep from selecting more than one card at a time
 		carCard.style.border = `6px solid ${color}`;
 		carCard.style.background = "wheat";
   };

@@ -1,13 +1,11 @@
-/*#editInput {
-	size: 50;
-}*/
-
 
 .carCard {
 	text-align: center;
+	padding-top: 10px
 }
 
-.carCardTitle span {
+.carCardTitle {
+	display: inline-block;
 	padding-right: 10px;
 	font-size: 1.5em;
 	font-weight: bold;
@@ -25,9 +23,8 @@
 .carDescript {
 	font-size: 1.2em;
 	font-style: italic;
-
 }
 
-.selectedBG {
-	background: wheat;
+#carContainer {
+	margin: 0 10px;
 }
