@@ -7,18 +7,13 @@ var CarLot = (function (carlot) {
   carlot.activateEvents = function(){
   	var cars = CarLot.getInventory();
 
-
   	for (i = 0; i < cars.length; i++){
 	  	var carCard = document.getElementById(`vehicle--${i}`);
 	  	console.log("carCard", carCard);
 	  	carCard.addEventListener("click", editCard);
-
-  		
   	};
 
-
-
-  	// submitBtn.addEventListener("click", changeDescription);
+  	submitBtn.addEventListener("click", submitChange);
   };
 
   return carlot;

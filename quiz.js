@@ -12,71 +12,52 @@ function populatePage (inventory) {
   var outputEl = document.getElementById("carContainer");
   var carTotal = inventory.length;
 
-  columnCounter = 1; //counter for liniting 3 columns per row
+	inventory.forEach(function (car, indexNum){
+		var carYear = car.year;
+		var carMake = car.make;
+		var carModel = car.model;
+		var carColor = car.color;
+		var carPrice = car.price;
+		var carDescript = car.description;
 
-  // for (i = 0; i < carTotal; i++){
-	  // if (columnCounter < 4) {
-	  	inventory.forEach(function (car, indexNum){
-	  		var carYear = car.year;
-	  		var carMake = car.make;
-	  		var carModel = car.model;
-	  		var carColor = car.color;
-	  		var carPrice = car.price;
-	  		var carDescript = car.description;
+		// create a div with an ID
+		var newCarCard = document.createElement("div");
+		var newCarCardID = document.createAttribute("id");
+		newCarCardID.value = `vehicle--${indexNum}`;
+		newCarCard.setAttributeNode(newCarCardID);
+		newCarCard.classList.add("carCard");
+		newCarCard.style.border = `3px solid ${carColor}`;
 
-	  		// create a div with an ID
-	  		var newCarCard = document.createElement("div");
-	  		var newCarCardID = document.createAttribute("id");
-	  		newCarCardID.value = `vehicle--${indexNum}`;
-	  		newCarCard.setAttributeNode(newCarCardID);
-	  		newCarCard.classList.add("carCard");
-	  		newCarCard.style.border = `3px solid ${carColor}`;
+		//add div with year, make model for top of card
+		var newCarTitleDiv = document.createElement("div");
+		newCarTitleDiv.innerHTML = `<span>${carYear}</span><span>${carMake}</span><span>${carModel}</span>`;
+		newCarTitleDiv.classList.add("carCardTitle");
 
-	  		//add div with year, make model for top of card
-	  		var newCarTitleDiv = document.createElement("div");
-	  		newCarTitleDiv.innerHTML = `<span>${carYear}</span><span>${carMake}</span><span>${carModel}</span>`;
-	  		newCarTitleDiv.classList.add("carCardTitle");
+		newCarCard.appendChild(newCarTitleDiv);
 
-	  		newCarCard.appendChild(newCarTitleDiv);
+		//add color, price and description as separate p's
+		var newCarColorEl = document.createElement("p");
+		newCarColorEl.innerHTML = carColor;
+		newCarColorEl.classList.add("carColor");
+		newCarCard.appendChild(newCarColorEl);
+		var newCarPriceEl = document.createElement("p");
+		newCarPriceEl.innerHTML = `$${carPrice}`;
+		newCarPriceEl.classList.add("carPrice");
+		newCarCard.appendChild(newCarPriceEl);
 
-	  		//add color, price and description as separate p's
-	  		var newCarColorEl = document.createElement("p");
-	  		newCarColorEl.innerHTML = carColor;
-	  		newCarColorEl.classList.add("carColor");
-	  		newCarCard.appendChild(newCarColorEl);
-	  		var newCarPriceEl = document.createElement("p");
-	  		newCarPriceEl.innerHTML = `$${carPrice}`;
-	  		newCarPriceEl.classList.add("carPrice");
-	  		newCarCard.appendChild(newCarPriceEl);
+		var newCarDescriptEl = document.createElement("p");
+		newCarDescriptEl.innerHTML = carDescript;
+		newCarDescriptEl.classList.add("carDescript");
+		var descriptionID = document.createAttribute("id");
+		descriptionID.value = `description--${indexNum}`;
+		newCarDescriptEl.setAttributeNode(descriptionID);
+		newCarCard.appendChild(newCarDescriptEl);
 
-	  		var newCarDescriptEl = document.createElement("p");
-	  		newCarDescriptEl.innerHTML = carDescript;
-	  		newCarDescriptEl.classList.add("carDescript");
-	  		var descriptionID = document.createAttribute("id");
-	  		descriptionID.value = `description--${indexNum}`;
-	  		newCarDescriptEl.setAttributeNode(descriptionID);
-	  		newCarCard.appendChild(newCarDescriptEl);
+		newCarCard.classList.add("col-sm-4");
+		newCarCard.classList.add("col-xs-12");
 
-	  		newCarCard.classList.add("col-sm-4");
-	  		newCarCard.classList.add("col-xs-12");
-
-	  		carRow.appendChild(newCarCard);
-
-	  		// columnCounter += 1;
-	  	});
-
-	  // } else {
-
-	  	// create new row div
-	  	// counter = 1; //reset counter for next row
-	  // };
-
-
-  	
-  // }
-
-
-
+		carRow.appendChild(newCarCard);
+	});
 
   // Now that the DOM is loaded, establish all the event listeners needed
 
@@ -85,26 +66,30 @@ function populatePage (inventory) {
 
 
 
-
 function editCard (event) {
 	var selectedEl = event.currentTarget;
-	selectedEl.classList.toggle("selectedBorder");
 	var cardSelectedNum = event.currentTarget.id.split("--")[1];
-	console.log("you clicked on card #", cardSelectedNum);
 
-	CarLot.getSelectedCarColor(cardSelectedNum);
+	var cars = CarLot.getInventory();
+	var carColor = cars[cardSelectedNum].color;
+	// When you click on one of the car elements, change the width of the border to a higher value, and change the background color to any other color of your choosing.
+	CarLot.changeSelectCarStyle(selectedEl, carColor);
 
+	// Also, on click of the car element, clear the value of the text input in the navbar, and put the cursor in the text input.
 	textInputEl.focus();
 	textInputEl.value = "";
 
+	// When you start typing into the navbar's text input, the description of the currently selected car should be bound to what you are typing in and match it exactly.
 	liveUpdate(cardSelectedNum);
 }
 
 
+// when submit button clicked, finalize description text, reset borders/backgrounds
+function submitChange (){
 
-// function changeDescription () (carIDnum) {
+		CarLot.resetCardStyle();
 
-// }
+}
 
 
 

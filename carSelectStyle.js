@@ -3,23 +3,23 @@
 // A color name.
 
 
-// var CarLot = (function (carlot) {
+var CarLot = (function (carlot) {
 
-//   carlot.resetBorders = function(){
-//   	var cars = CarLot.getInventory();
+  carlot.resetCardStyle = function(carNum){
+  	var cars = CarLot.getInventory();
 
-//   	for (i = 0; i < cars.length; i++){
-  		
-//   	};
-//   };
+  	for (i = 0; i < cars.length; i++){
+  		var carCard = document.getElementById(`vehicle--${i}`);
+  		carCard[i].style.border = `3px solid ${car[i].carColor}`;
+			carCard[i].style.background = "white";
+  	};
+  };
 
+  carlot.changeSelectCarStyle = function (carCard, color) {
+		carCard.style.border = `6px solid ${color}`;
+		carCard.style.background = "wheat";
+  };
 
-//   carLot.changeSelectCarStyle = function (carCard, color) {
+  return carlot;
 
-//   		// carCard.style.border = `4px solid ${color}`;
-
-//   };
-
-//   return carlot;
-
-// })(CarLot || {});
+})(CarLot || {});

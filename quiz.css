@@ -28,6 +28,6 @@
 
 }
 
-.selectedBorder {
-	border: 4px dotted red;
+.selectedBG {
+	background: wheat;
 }
