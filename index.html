@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>SPA Milestone Quiz - John Hamm</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link rel="stylesheet" href="quiz.css">
+</head>
+<body>
+<!-- Put a standard Bootstrap navbar element at the top of your page.
+		Put only two elements in the navbar.
+			A text input field.
+			A button. -->
+	<nav class="navbar navbar-inverse">
+	  <div class="container-fluid">
+	    <div class="navbar-form navbar-left">
+	      <input id ="editInput" type="text" placeholder="Edit vehicle description" size="70">
+	      <button id = "submitBtn" type="submit" class="btn btn-default btn-sm">Submit change</button>
+	    </div>
+	  </div><!-- /.container-fluid -->
+	</nav>
+
+<!-- 	container for car cards-->	
+	<div id="carContainer" class="container-fluid">
+		<div id ="carRow" class="row"></div>
+	</div>
+
+</body>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<script type="text/javascript" src="CarLot.js"></script>
+<script type="text/javascript" src="eventHandlers.js"></script>
+<script type="text/javascript" src="carSelectStyle.js"></script>
+<script type="text/javascript" src="quiz.js"></script>
+</html>

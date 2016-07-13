@@ -1,0 +1,30 @@
+
+.carCard {
+	text-align: center;
+	padding-top: 10px
+}
+
+.carCardTitle {
+	display: inline-block;
+	padding-right: 10px;
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+.carColor {
+	font-style: italic;
+	font-size: 1em;
+}
+
+.carPrice {
+	font-size: 2em;
+}
+
+.carDescript {
+	font-size: 1.2em;
+	font-style: italic;
+}
+
+#carContainer {
+	margin: 0 10px;
+}
